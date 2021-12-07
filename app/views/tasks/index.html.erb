@@ -1,0 +1,26 @@
+<h1>My tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <% if task.completed? %>
+    <li>
+      <%= link_to task_toggle_path(task) do %>
+        <i class="far fa-check-circle"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task) %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to task_toggle_path(task) do %>
+        <i class="far fa-circle"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task) %>
+    </li>
+  <% end %>
+  <% end %>
+</ul>
+
+<%= link_to 'Create new Task', new_task_path %>
+
+<%# <i class="far fa-check-circle"></i>
+<i class="far fa-circle"></i> %>
